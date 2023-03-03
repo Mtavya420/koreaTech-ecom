@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         submit_type: "pay",
         mode: "payment",
         payment_method_types: ["card"],
-        billing_address_collections: ["auto"],
+        billing_address_collection: "auto",
         shipping_options: [
           { shipping_rate: "shr_1Mh7lEGbAwRbCPxYDNHIy3ia" },
           { shipping_rate: "shr_1Mh7uvGbAwRbCPxYeh3wdaES" },
@@ -40,8 +40,8 @@ export default async function handler(req, res) {
           };
         }),
       
-        success_url: `${req.headers.origin}/?success`,
-        cancel_url: `${req.headers.origin}/?canceled`,
+        success_url: `${req.headers.origin}/success`,
+        cancel_url: `${req.headers.origin}/canceled`,
       };
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);
