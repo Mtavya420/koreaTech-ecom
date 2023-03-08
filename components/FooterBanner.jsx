@@ -34,11 +34,11 @@ const FooterBanner = ({
             <button type="button">{buttonText}</button>
           </Link>
         </div>
-        <img
+        {/* <img
           src={urlFor(image)}
           className="footer-banner-image"
-          style={{ maxWidth: "500px" }}
-        />
+          
+        /> */}
       </div>
     </div>
   );
