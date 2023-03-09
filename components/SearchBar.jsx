@@ -1,23 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import {
+  selectProductsState,
+  setSearchProductsState,
+} from "store/productsSlice";
+import { useSelector, useDispatch } from "react-redux";
 
-const SearchBar = ({ products }) => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [results, setResults] = useState([]);
-
-  const handleSearch = () => {
-    const filteredResults = products.filter((p) =>
-      p.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setResults(filteredResults);
-  };
+const SearchBar = () => {
+  // const [searchQuery, setSearchQuery] = useState("");
+  const dispatch = useDispatch();
+  const { searchProduct } = useSelector(selectProductsState);
 
   const handleInputChange = (event) => {
-    setSearchQuery(event.target.value);
+    dispatch(setSearchProductsState(event.target.value));
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    handleSearch(searchQuery);
+    dispatch(setSearchProductsState(searchProduct));
   };
 
   return (
@@ -28,34 +27,21 @@ const SearchBar = ({ products }) => {
         onSubmit={handleFormSubmit}
       >
         <div
-          className="input-group"
+          className="form-group d-flex align-items-center"
           style={{ width: "700px", borderRadius: " 40px" }}
         >
           <input
             type="text"
-            className="form-control"
+            className="form-control rounded h-4 flex-1"
             placeholder="Search.."
             aria-label="Search"
-            value={searchQuery}
+            value={searchProduct}
             onChange={handleInputChange}
           />
-          <div className="input-group-append" style={{ marginLeft: "5px" }}>
-            <button
-              className="btn search-btn"
-              type="button"
-              style={{
-                backgroundColor: "#FF2625",
-                color: "#fff",
-              }}
-              onClick={() => handleSearch()}
-            >
+          <div class="input-group-append d-flex border align-items-center">
+            <button className="btn btn-danger" type="submit">
               Search
             </button>
-            <ul>
-              {results.map((p) => (
-                <li key={p._id}>{p.name}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </form>
@@ -64,4 +50,3 @@ const SearchBar = ({ products }) => {
 };
 
 export default SearchBar;
-

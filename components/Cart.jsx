@@ -11,10 +11,7 @@ import toast from "react-hot-toast";
 
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
-import getStripe from '../lib/getStripe';
-
-
- 
+import getStripe from "../lib/getStripe";
 
 const Cart = () => {
   const cartRef = useRef();
@@ -60,6 +57,15 @@ const Cart = () => {
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
+        {/* <button
+          
+          className="btn search-btn"
+          type="button"
+          
+        >
+          <Link href="/downloadFile">Download File</Link>
+        </button> */}
+
         {cartItems.length < 1 && (
           <div className="empty-cart">
             <AiOutlineShopping size={150} />
@@ -68,7 +74,7 @@ const Cart = () => {
               <button
                 type="button"
                 onClick={() => setShowCart(false)}
-                className="btn"
+                className="my-btn"
               >
                 Continue Shopping
               </button>
@@ -131,7 +137,7 @@ const Cart = () => {
               <h3>Subtotal:</h3>
               <h3>${totalPrice}</h3>
             </div>
-            <div className="btn-container">
+            <div className="my-btn-container">
               <button type="button" className="btn" onClick={handleCheckout}>
                 Pay with Stripe
               </button>

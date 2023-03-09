@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import { useStateContext } from "context/StateContext";
 import SearchBar from "./SearchBar";
 
-const Navbar = ({ products }) => {
+const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
   return (
     <nav className="navbar navbar-expand-lg bg-light">
@@ -34,7 +34,7 @@ const Navbar = ({ products }) => {
             </Link>
           </div>
         </div>
-        <SearchBar products={products} />
+        <SearchBar />
         <div>
           <button
             type="button"

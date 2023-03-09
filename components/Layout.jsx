@@ -1,25 +1,23 @@
-import Head from 'next/head'
-import React from 'react'
-import Navbar from './Navbar'
-import Footer from './Footer';
+import Head from "next/head";
+import React from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
         <title>Dullah Store</title>
       </Head>
       <header>
-        <Navbar/>
+        <Navbar />
       </header>
-      <main className="main-container">
-        {children}
-      </main>
+      <main className="main-container">{children}</main>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
