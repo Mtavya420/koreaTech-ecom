@@ -3,8 +3,6 @@ body,
 * {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
 }
 ::-webkit-scrollbar {
@@ -244,8 +242,10 @@ span.text-red {
   position: absolute;
   /* top: -35%;
   left: 8%; */
-  top: -25%;
-  left: 25%;
+  top: 5%;
+  left: 30%;
+  
+  width: 350px;
 }
 .banner-desc .right {
   line-height: 1.4;
@@ -613,18 +613,19 @@ span.text-red {
     height: 560px;
   }
   .hero-banner-image {
-    width: 77%;
+    width: 57%;
     height: 62%;
-    top: -2%;
+    top: 18%;
     right: -6%;
+   
   }
   .footer-banner-container {
     height: 560px;
     margin-top: 80px;
   }
   .footer-banner-image {
-    width: 77%;
-    left: 30%;
+    width: 57%;
+    left: 50%;
     top: 6%;
     height: 56%;
   }

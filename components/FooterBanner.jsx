@@ -14,7 +14,7 @@ const FooterBanner = ({
     product,
     desc,
     buttonText,
-    image
+    image,
   },
 }) => {
   return (
@@ -31,14 +31,12 @@ const FooterBanner = ({
           <h3>{midText}</h3>
           <p>{desc}</p>
           <Link href={`/product/${product}`}>
-            <button type="button">{buttonText}</button>
+            <button className="mt-0 mt-md-5" type="button">
+              {buttonText}
+            </button>
           </Link>
         </div>
-        {/* <img
-          src={urlFor(image)}
-          className="footer-banner-image"
-          
-        /> */}
+        <img src={urlFor(image)} className="footer-banner-image" />
       </div>
     </div>
   );
