@@ -57,14 +57,14 @@ const Cart = () => {
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
-        {/* <button
+        <button
           
           className="btn search-btn"
           type="button"
           
         >
           <Link href="/downloadFile">Download File</Link>
-        </button> */}
+        </button>
 
         {cartItems.length < 1 && (
           <div className="empty-cart">
