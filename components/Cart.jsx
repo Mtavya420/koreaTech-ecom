@@ -12,6 +12,8 @@ import toast from "react-hot-toast";
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
+import { CSVLink } from "react-csv";
+
 
 const Cart = () => {
   const cartRef = useRef();
@@ -44,6 +46,17 @@ const Cart = () => {
     stripe.redirectToCheckout({ sessionId: data.id });
   };
 
+  const fileItem = [
+    { name: "Product 1", price: 10, quantity: 2 },
+   
+  ];
+
+  const yourData = [
+    ["Name", "Price", "Quantity"],
+    ...fileItem.map((item) => [item.name, item.price, item.quantity]),
+  ];
+
+
   return (
     <div className="cart-wrapper" ref={cartRef}>
       <div className="cart-container">
@@ -57,14 +70,16 @@ const Cart = () => {
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
-        <button
-          
+        <button 
           className="btn search-btn"
           type="button"
+          >
           
-        >
-          <Link href="/downloadFile">Download File</Link>
+          <CSVLink data={yourData} filename={"Cart Products.csv"}>
+            Export to Excel
+          </CSVLink>
         </button>
+
 
         {cartItems.length < 1 && (
           <div className="empty-cart">
