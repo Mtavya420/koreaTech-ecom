@@ -13,6 +13,11 @@ import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
 import { CSVLink } from "react-csv";
+import {
+  selectProductsState,
+  setSearchProductsState,
+} from "store/productsSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 
 const Cart = () => {
