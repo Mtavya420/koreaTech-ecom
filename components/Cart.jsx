@@ -18,7 +18,7 @@ import {
   setSearchProductsState,
 } from "store/productsSlice";
 import { useSelector, useDispatch } from "react-redux";
-
+import { setProductsState } from "../store/productsSlice";
 
 const Cart = () => {
   const cartRef = useRef();
@@ -30,6 +30,9 @@ const Cart = () => {
     toggleCartItemQuanitity,
     onRemove,
   } = useStateContext();
+
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.products);
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -51,16 +54,45 @@ const Cart = () => {
     stripe.redirectToCheckout({ sessionId: data.id });
   };
 
-  const fileItem = [
-    { name: "Product 1", price: 10, quantity: 2 },
-   
-  ];
+  // const fileItem = [
+  //   { name: "Product 1", price: 10, quantity: 2 },
 
-  const yourData = [
-    ["Name", "Price", "Quantity"],
-    ...fileItem.map((item) => [item.name, item.price, item.quantity]),
-  ];
+  // ];
 
+  // const yourData = [
+  //   ["Name", "Price", "Quantity"],
+  //   ...fileItem.map((item) => [item.name, item.price, item.quantity]),
+  // ];
+
+ const headers = [
+   { label: "Product Name", key: "title" },
+   { label: "Price", key: "price" },
+   { label: "Quantity", key: "quantity" },
+ ];
+
+ const csvData = cartItems.map(({ title, price, quantity }) => ({
+   title,
+   price,
+   quantity,
+ }));
+
+  // const handleExportCSV = () => {
+  //   // Map the cart items to the expected CSV format
+  //   const csvData = cartItems.map(({ title, price, quantity }) => ({
+  //     name: title,
+  //     price,
+  //     quantity,
+  //   }));
+
+  //   // Update the Redux store with the new products data
+  //   const newProducts = products.concat(cartItems);
+  //   dispatch(setProductsState(newProducts));
+
+  //   // const myData = [
+  //   //   ["Name", "Price", "Quantity"],
+  //   //   ...csvData.map((item) => [item.name, item.price, item.quantity]),
+  //   // ];
+  // };
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -75,16 +107,17 @@ const Cart = () => {
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
-        <button 
-          className="btn search-btn"
-          type="button"
-          >
-          
-          <CSVLink data={yourData} filename={"Cart Products.csv"}>
+        {/* <CSVLink data={yourData} filename={"Cart Products.csv"}>
             Export to Excel
-          </CSVLink>
-        </button>
+          </CSVLink> */}
 
+        <CSVLink
+          data={csvData}
+          headers={headers}
+          filename={"Cart-Products.csv"}
+        >
+          Export to Excel
+        </CSVLink>
 
         {cartItems.length < 1 && (
           <div className="empty-cart">
