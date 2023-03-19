@@ -107,10 +107,7 @@ const Cart = () => {
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
-        {/* <CSVLink data={yourData} filename={"Cart Products.csv"}>
-            Export to Excel
-          </CSVLink> */}
-
+        
         <CSVLink
           data={csvData}
           headers={headers}
