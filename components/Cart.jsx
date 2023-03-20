@@ -13,12 +13,7 @@ import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
 import { CSVLink } from "react-csv";
-import {
-  selectProductsState,
-  setSearchProductsState,
-} from "store/productsSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { setProductsState } from "../store/productsSlice";
+
 
 const Cart = () => {
   const cartRef = useRef();
@@ -31,8 +26,7 @@ const Cart = () => {
     onRemove,
   } = useStateContext();
 
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.products);
+
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -65,7 +59,7 @@ const Cart = () => {
   // ];
 
  const headers = [
-   { label: "Product Name", key: "title" },
+   { label: "Product Name", key: "item" },
    { label: "Price", key: "price" },
    { label: "Quantity", key: "quantity" },
  ];
@@ -76,23 +70,6 @@ const Cart = () => {
    quantity,
  }));
 
-  // const handleExportCSV = () => {
-  //   // Map the cart items to the expected CSV format
-  //   const csvData = cartItems.map(({ title, price, quantity }) => ({
-  //     name: title,
-  //     price,
-  //     quantity,
-  //   }));
-
-  //   // Update the Redux store with the new products data
-  //   const newProducts = products.concat(cartItems);
-  //   dispatch(setProductsState(newProducts));
-
-  //   // const myData = [
-  //   //   ["Name", "Price", "Quantity"],
-  //   //   ...csvData.map((item) => [item.name, item.price, item.quantity]),
-  //   // ];
-  // };
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
