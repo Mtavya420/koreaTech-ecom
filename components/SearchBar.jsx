@@ -6,7 +6,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 
 const SearchBar = () => {
-  // const [searchQuery, setSearchQuery] = useState("");
+ 
   const dispatch = useDispatch();
   const { searchProduct } = useSelector(selectProductsState);
 

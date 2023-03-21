@@ -48,24 +48,16 @@ const Cart = () => {
     stripe.redirectToCheckout({ sessionId: data.id });
   };
 
-  // const fileItem = [
-  //   { name: "Product 1", price: 10, quantity: 2 },
 
-  // ];
-
-  // const yourData = [
-  //   ["Name", "Price", "Quantity"],
-  //   ...fileItem.map((item) => [item.name, item.price, item.quantity]),
-  // ];
 
  const headers = [
-   { label: "Product Name", key: "item" },
+   { label: "Product Name", key: "name" },
    { label: "Price", key: "price" },
    { label: "Quantity", key: "quantity" },
  ];
 
- const csvData = cartItems.map(({ title, price, quantity }) => ({
-   title,
+ const csvData = cartItems.map(({ name, price, quantity }) => ({
+   name,
    price,
    quantity,
  }));
