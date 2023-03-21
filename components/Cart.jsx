@@ -28,25 +28,25 @@ const Cart = () => {
 
 
 
-  const handleCheckout = async () => {
-    const stripe = await getStripe();
+  // const handleCheckout = async () => {
+  //   const stripe = await getStripe();
 
-    const response = await fetch("/api/stripe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(cartItems),
-    });
+  //   const response = await fetch("/api/stripe", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(cartItems),
+  //   });
 
-    if (response.statusCode === 500) return;
+  //   if (response.statusCode === 500) return;
 
-    const data = await response.json();
+  //   const data = await response.json();
 
-    toast.loading("Redirecting...");
+  //   toast.loading("Redirecting...");
 
-    stripe.redirectToCheckout({ sessionId: data.id });
-  };
+  //   stripe.redirectToCheckout({ sessionId: data.id });
+  // };
 
 
 
@@ -154,13 +154,13 @@ const Cart = () => {
           <div className="cart-bottom">
             <div className="total">
               <h3>Subtotal:</h3>
-              <h3>${totalPrice}</h3>
+              <h3>Tshs {totalPrice}</h3>
             </div>
-            <div className="my-btn-container">
+            {/* <div className="my-btn-container">
               <button type="button" className="btn" onClick={handleCheckout}>
                 Pay with Stripe
               </button>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
