@@ -25,8 +25,11 @@ const Home = ({ products, bannerData }) => {
           />
         )}
         <div className="products-heading">
-          <h2>Best Seller Phones</h2>
-          <p>Explore our latest collection of phones from top brands.</p>
+          <h2>Top Rated Skincare Products</h2>
+          <p>
+            Discover the best skincare products that have become customer
+            favorites from trusted brands.
+          </p>
         </div>
         <div className="products-container">
           {searchProduct

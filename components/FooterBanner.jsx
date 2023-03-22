@@ -31,7 +31,7 @@ const FooterBanner = ({
           <h3>{midText}</h3>
           <p>{desc}</p>
           <Link href={`/product/${product}`}>
-            <button className="mt-0 mt-md-5" type="button">
+            <button className="mt-0 mt-md-5" type="button" disabled>
               {buttonText}
             </button>
           </Link>
