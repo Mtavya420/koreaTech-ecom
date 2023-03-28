@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Layout from "../../components/Layout";
 import { StateContext } from "context/StateContext";
 import { wrapper } from "store/store";
+import {SessionProvider} from 'next-auth/react'
 
 function App({ Component, pageProps }) {
   useEffect(() => {
@@ -12,12 +13,14 @@ function App({ Component, pageProps }) {
   }, []);
 
   return (
+    <SessionProvider>
     <StateContext>
       <Layout>
         <Toaster />
         <Component {...pageProps} />
       </Layout>
     </StateContext>
+    </SessionProvider>
   );
 }
 
