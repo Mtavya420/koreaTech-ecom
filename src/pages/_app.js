@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import "@/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "sweetalert2/src/sweetalert2.scss";
 import Layout from "../../components/Layout";
 import { StateContext } from "context/StateContext";
 import { wrapper } from "store/store";
