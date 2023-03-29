@@ -6,34 +6,17 @@ import {
   AiOutlineStar,
 } from "react-icons/ai";
 
-import { client, urlFor } from "lib/client";
-import Product from "components/Product";
+import { client, urlFor } from 'lib/client';
+import  Product  from 'components/Product';
 import { useStateContext } from "context/StateContext";
-import { getSession, signOut, status, useSession } from "next-auth/react";
-import Swal from "sweetalert2";
-
 
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
-  const { data: session } = useSession();
-
 
   const handleBuyNow = () => {
-    console.log("sesssion", session);
-    if (!session) {
-
-      Swal.fire({
-        title: "Oops! It looks like you're not logged in.",
-        text: "Please log in to continue.",
-        icon: "warning",
-        confirmButtonText: "Ok",
-      });
-      return;
-    }
-
     onAdd(product, qty);
 
     setShowCart(true);
@@ -90,7 +73,6 @@ const ProductDetails = ({ product, products }) => {
               </span>
             </p>
           </div>
-
           <div className="buttons">
             <button
               type="button"

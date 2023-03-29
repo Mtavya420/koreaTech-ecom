@@ -9,7 +9,6 @@ import Link from "next/link";
 import { AiOutlineShopping } from "react-icons/ai";
 import Cart from "./Cart";
 import { useStateContext } from "context/StateContext";
-import SignIn  from '@/pages/SignIn';
 
 const SearchBar = () => {
   // const [searchQuery, setSearchQuery] = useState("");
@@ -54,12 +53,12 @@ const SearchBar = () => {
                 Categories
               </Link>
             </li>
-           
           </ul>
           <form
             className="d-flex mx-auto"
             role="search"
             onSubmit={handleFormSubmit}
+            
           >
             <input
               className="form-control me-2"
@@ -74,8 +73,6 @@ const SearchBar = () => {
             </button>
           </form>
         </div>
-
-        <SignIn/>
         <div>
           <button
             type="button"
