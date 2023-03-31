@@ -12,6 +12,7 @@ import { useStateContext } from "context/StateContext";
 import { getSession, signOut, status, useSession } from "next-auth/react";
 import Swal from "sweetalert2";
 
+
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
@@ -19,7 +20,6 @@ const ProductDetails = ({ product, products }) => {
   const { data: session } = useSession();
 
   const handleBuyNow = () => {
-    console.log("sesssion", session);
     if (!session) {
       Swal.fire({
         title: "Oops! It looks like you're not logged in.",
