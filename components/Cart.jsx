@@ -27,6 +27,7 @@ const Cart = () => {
   } = useStateContext();
 
 
+// Stripe integration 
 
   // const handleCheckout = async () => {
   //   const stripe = await getStripe();
