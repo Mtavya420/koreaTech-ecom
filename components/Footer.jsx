@@ -9,7 +9,7 @@ import {
 const Footer = () => {
   return (
     <div className="footer-container">
-      <p>Made with ❤️ by Ashkay!</p>
+      <p>Made with ❤️ by Dullah</p>
       <p>2023 KoreaTech Products All rights Reserved</p>
 
       <p className="icons">
