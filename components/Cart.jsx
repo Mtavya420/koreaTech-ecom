@@ -15,7 +15,6 @@ import getStripe from "../lib/getStripe";
 import { CSVLink } from "react-csv";
 import { getSession, signOut, status, useSession } from "next-auth/react";
 
-
 const Cart = () => {
   const cartRef = useRef();
   const {
@@ -29,9 +28,7 @@ const Cart = () => {
 
   const { data: session } = useSession();
 
-
-
-// Stripe integration 
+  // Stripe integration
 
   // const handleCheckout = async () => {
   //   const stripe = await getStripe();
@@ -53,23 +50,18 @@ const Cart = () => {
   //   stripe.redirectToCheckout({ sessionId: data.id });
   // };
 
+  const headers = [
+    { label: "Customer Name", key: "customerName" },
+    { label: "Product Name", key: "name" },
+    { label: "Price", key: "price" },
+    { label: "Quantity", key: "quantity" },
+  ];
 
-
- const headers = [
-   { label: "Customer Name", key: "customerName" },
-   { label: "Product Name", key: "name" },
-   { label: "Price", key: "price" },
-   { label: "Quantity", key: "quantity" },
- ];
-
-
- const csvData = cartItems.map(({ name, price, quantity }) => ({
-   name,
-   price,
-   quantity,
-   
- }));
-
+  const csvData = cartItems.map(({ name, price, quantity }) => ({
+    name,
+    price,
+    quantity,
+  }));
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -84,7 +76,6 @@ const Cart = () => {
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
-        
         <CSVLink
           data={csvData}
           headers={headers}
