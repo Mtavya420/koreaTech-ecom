@@ -13,6 +13,7 @@ import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
 import { CSVLink } from "react-csv";
+import { getSession, signOut, status, useSession } from "next-auth/react";
 
 
 const Cart = () => {
@@ -25,6 +26,9 @@ const Cart = () => {
     toggleCartItemQuanitity,
     onRemove,
   } = useStateContext();
+
+  const { data: session } = useSession();
+
 
 
 // Stripe integration 
@@ -52,15 +56,18 @@ const Cart = () => {
 
 
  const headers = [
+   { label: "Customer Name", key: "customerName" },
    { label: "Product Name", key: "name" },
    { label: "Price", key: "price" },
    { label: "Quantity", key: "quantity" },
  ];
 
+
  const csvData = cartItems.map(({ name, price, quantity }) => ({
    name,
    price,
    quantity,
+   
  }));
 
 
