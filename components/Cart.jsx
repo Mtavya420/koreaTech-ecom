@@ -49,7 +49,7 @@ const Cart = () => {
 
   //   stripe.redirectToCheckout({ sessionId: data.id });
   // };
-
+ 
   const headers = [
     { label: "Customer Name", key: "customerName" },
     { label: "Product Name", key: "name" },

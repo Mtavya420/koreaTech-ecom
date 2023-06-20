@@ -40,7 +40,7 @@ const SearchBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <Link className="navbar-brand" href="/">
-          Kotech
+          Korean Beauty_tz
         </Link>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul className="navbar-nav justify-content-center  mb-2 mb-lg-0 ">
